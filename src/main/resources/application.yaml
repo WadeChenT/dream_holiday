@@ -1,0 +1,37 @@
+server:
+    port: 8080
+    servlet:
+       context-path: /dreamHoliday
+
+spring:
+    servlet:
+        multipart:
+            max-file-size: 10MB
+            max-request-size: 10MB
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/dream_holiday?verifyServerCertificate=false&useSSL=true
+        username: root
+        password: 1qaz2wsx
+        hikari:
+            maximum-pool-size: 20
+            minimum-idle: 10
+            connection-timeout: 660000
+            idle-timeout: 20000
+            max-lifetime: 300000
+
+constant:
+    mailSender:
+        defaultEncoding: UTF-8
+        mailHost: smtp.gmail.com
+        mailPort: 587
+        username: chwat103+dreamHoliday@gmail.com
+        mailPassword: ckwejqbsqqvnnzfn
+        mailSmtpAuth: true
+        startTlsEnable: true
+        startTlsRequired: true
+
+logging:
+    level:
+        root: info
+        web: info
