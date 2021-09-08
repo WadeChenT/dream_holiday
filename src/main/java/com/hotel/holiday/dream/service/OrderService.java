@@ -6,7 +6,7 @@ import com.hotel.holiday.dream.entity.OrderList;
 import java.util.List;
 
 public interface OrderService {
-    void createOrder(OrderCreateDto orderCreateDto);
+    String createOrder(OrderCreateDto orderCreateDto);
 
     OrderList get(String id);
     List<OrderList> getList();

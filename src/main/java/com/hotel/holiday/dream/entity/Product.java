@@ -28,6 +28,9 @@ public class Product implements Serializable {
     @Column(name = "type", nullable = false)
     private String type;
 
+    @Column(name = "price", nullable = false)
+    private String price;
+
     @Column(name = "files")
     private byte[] files;
 

@@ -9,4 +9,5 @@ public class ProductCreateDto {
     String title;
     String description;
     MultipartFile files;
+    String price;
 }

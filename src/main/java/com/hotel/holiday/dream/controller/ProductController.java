@@ -15,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/product")
 @RequiredArgsConstructor
+@CrossOrigin(maxAge = 3600)
 public class ProductController {
 
     private final ProductService productService;
@@ -25,6 +26,14 @@ public class ProductController {
                     .ok()
                     .body(ResObject.of(CodeMsg.COMMON_OK)
                                     .addResult("productList", productService.getList()));
+    }
+
+    @GetMapping({"/type/{type}"})
+    public ResponseEntity<ResObject> getProductLists(@PathVariable String type) {
+        return ResponseEntity
+                .ok()
+                .body(ResObject.of(CodeMsg.COMMON_OK)
+                        .addResult("productList", productService.getList(type)));
     }
 
     @GetMapping({"/{productId}"})
@@ -51,7 +60,7 @@ public class ProductController {
     }
 
     @PostMapping("/update")
-    public ResponseEntity<ResObject> updateProduct(@RequestBody ProductDto productDto) {
+    public ResponseEntity<ResObject> updateProduct(@ModelAttribute ProductDto productDto) {
         return ResponseEntity
                     .ok()
                     .body(ResObject.of(CodeMsg.COMMON_OK));
